@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Button } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 
 import "./App.css";
 import logo from "./logo.svg";
@@ -8,11 +8,14 @@ import logo from "./logo.svg";
 function App() {
   const [count, setCount] = useState(0);
 
+  const players = [1, 2, 3, 4, 5, 6, 7, 8];
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
+        <p>{`Hello ${__APP_NAME__}`}</p>
+        <p>{`This is version ${__APP_VERSION__}`}</p>
         <p>
           <Button
             type="button"
@@ -22,29 +25,12 @@ function App() {
             count is: {count}
           </Button>
         </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
       </header>
+      <main>
+        {players.map((player) => (
+          <TextField id={`player-${player}`} label={`Jugador ${player}`} />
+        ))}
+      </main>
     </div>
   );
 }
